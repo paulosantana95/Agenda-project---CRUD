@@ -1,10 +1,53 @@
-<%- include('includes/head.ejs'); %>
-  <section>
-    <h1>Lorem normal</h1>
-    <form action="/" method="POST">
-      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-      <label for="">Cliente</label>
-      <input type="text" name="client">
-      <button type="submit">ENVIAR</button>
-    </form>
-<%- include('includes/footer.ejs'); %>
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-8 my-2">
+      <h1 class="display text-center">Agenda</h1>
+      <p class="text-center lead">Seus contatos estão abaixo.</p>
+
+      <div class="row">
+        <div class="col my-3">
+          <div class="alert alert-danger">Um erro qualquer</div>
+        </div>
+      </div>
+
+      <div class="responsive-table">
+        <table class="table my-3">
+          <tr>
+            <td>Paulo</td>
+            <td>(85)9 9771-2139</td>
+            <td>paulo@paulo.com</td>
+            <td>@paulosantana.sa</td>
+          </tr>
+          <tr>
+            <td>Gustavo</td>
+            <td>(85)9 9xxx-xxxx</td>
+            <td>gustavo@gustavo.com</td>
+            <td>@nice_gustavinho</td>
+          </tr>
+          <tr>
+            <td>Rannah</td>
+            <td>(85)9 9xxx-xxxx</td>
+            <td>rannah@rannah.com</td>
+            <td>@leslyedantas</td>
+          </tr>
+          <tr>
+            <td>Késsia</td>
+            <td>(85)9 9xxx-xxxx</td>
+            <td>kessia@ingles.com</td>
+            <td>@kessiaemo123</td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+
+<%- include('includes/footer') %>
