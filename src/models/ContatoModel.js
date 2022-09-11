@@ -17,12 +17,6 @@ function Contato(body) {
   this.contato = null;
 }
 
-Contato.searchId = async function(id) {
-  if(typeof id !== 'string') return;
-  const contato = await ContatoModel.findById(id);
-  return contato;
-}
-
 Contato.prototype.register = async function() {
   this.validateUser()
   if(this.errors.length > 0) return;
@@ -35,8 +29,9 @@ Contato.prototype.validateUser = function() {
   //E-mail precisa ser válido
   if(this.body.email && !validator.isEmail(this.body.email)) this.errors.push('E-mail inválido');
   if(!this.body.nome) this.errors.push('Nome é um campo obrigatório.');
-  if(!this.body.email && !this.body.telefone) this.errors.push('Necessário ter email ou telefone válido.');
-
+  if(!this.body.email && !this.body.telefone) {
+    this.errors.push('Necessário ter email ou telefone válido.');
+  }
 }
 
 Contato.prototype.cleanUp = function() {
@@ -53,5 +48,20 @@ Contato.prototype.cleanUp = function() {
     telefone: this.body.telefone,
   }
 }
+
+Contato.prototype.edit = async function(id) {
+  if(typeof id !== 'string') return;
+  this.validateUser();
+  if(this.errors.length > 0) return;
+  this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, { new: true });
+}
+
+//Método estático.
+Contato.searchId = async function(id) {
+  if(typeof id !== 'string') return;
+  const contato = await ContatoModel.findById(id);
+  return contato;
+}
+
 
 module.exports = Contato;
