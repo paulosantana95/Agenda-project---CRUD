@@ -1,7 +1,7 @@
 const Login = require('../models/LoginModel')
 
 exports.index = (req, res) => {
-  if(req.session.user) return res.render('index');
+  if(req.session.user) return res.render('login-logado');
   res.render('login');
 }
 
@@ -55,5 +55,5 @@ exports.enter = async (req, res) => {
 
 exports.logout = (req, res) => {
   req.session.destroy();
-  res.redirect('/login')
+  res.redirect('/')
 }
