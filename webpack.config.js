@@ -8,31 +8,16 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    rules: [
-      {
+    rules: [{
         exclude: /node_modules/,
         test: /\.js$/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              [
-                '@babel/preset-env',
-                {
-                  targets: {
-                    esmodules: true,
-                  },
-                },
-              ],
-            ],
-          },
+            presets: ['@babel/env']
+          }
         }
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }
-    ]
+      }]
   },
   devtool: 'source-map',
 };

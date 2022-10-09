@@ -16,11 +16,11 @@
 <div class="form-margin">
   <div class="row">
     <div class="col-lg-3"></div>
-    <div class="col-lg">
+    <div class="col-lg  my-5">
       <h4>Faça seu cadastro</h4>
       <p class="col-lg-5">Se você ainda não possui cadastro, preencha o formulário abaixo:</p>
       <div class="col-lg-5">
-        <form action="/login/register" method="POST">
+        <form class="form-register" action="/login/register" method="POST">
           <input type="hidden" name="_csrf" value="<%= csrfToken %>">
           <div class="form-group">
             <label for="exampleInputEmail1">Seu e-mail</label>
@@ -34,11 +34,11 @@
         </form>
       </div>
     </div>
-    <div class="col-lg">
+    <div class="col-lg  my-5">
       <h4>Faça seu login.</h4>
       <p class="col-lg-5">Se você já possui uma conta, faça login abaixo:</p>
       <div class="col-lg-5">
-        <form action="/login/enter" method="POST">
+        <form class="form-login" action="/login/enter" method="POST">
           <input type="hidden" name="_csrf" value="<%= csrfToken %>">
           <div class="form-group">
             <label for="exampleInputEmail1">Seu e-mail</label>
